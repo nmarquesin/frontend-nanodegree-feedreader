@@ -82,13 +82,40 @@ $(function() {
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
-
+    describe('Initial Entries', function() {
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+    	beforeEach(function(done) {
+    		setTimeout(function() {
+    			done();
+    		}, 100);
+    		
+    	});
+    	
+    	it('exist after page load', function(done) {
+			fail('ooops')});
+/*    		loadFeed(result) {
+    			expect(result).toBeDefined();
+    			done();
+    		}
+    	});
+
+/*    	beforeEach(async function() {
+    		await loadFeed(0);
+    	});
+         it('exist after page load', async function() {
+         	const result = await loadFeed(0);
+         	let parent = document.getElementsByClassName('feed');
+         	let children = parent.childNodes;
+         	console.log(parent);
+         	console.log('hello');
+         	fail('testing only');
+         }); */
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
@@ -96,4 +123,6 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+    
 }());
