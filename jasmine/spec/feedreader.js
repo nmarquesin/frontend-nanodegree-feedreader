@@ -13,6 +13,21 @@ $(function() {
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
     */
+    var allFeeds = [
+        {
+            name: 'Udacity Blog',
+            url: 'http://blog.udacity.com/feed'
+        }, {
+            name: 'CSS Tricks',
+            url: 'http://feeds.feedburner.com/CssTricks'
+        }, {
+            name: 'HTML5 Rocks',
+            url: 'http://feeds.feedburner.com/html5rocks'
+        }, {
+            name: 'Linear Digressions',
+            url: 'http://feeds.feedburner.com/udacity-linear-digressions'
+        }
+    ];
     describe('RSS Feeds', function() {
 
         function isDef(arg) {
@@ -97,9 +112,8 @@ $(function() {
     	});
 
     	it('exist after page load', function(done) {
-        console.log($('.feed'));
-    			expect($('.feed').length).not.toBe(0);
-          expect($('.entry')).toBeDefined();
+    			expect(document.querySelector('.feed').length).not.toBe(0);
+          expect(document.querySelector('.entry')).toBeDefined();
     			done();
     	});
 
@@ -114,19 +128,23 @@ $(function() {
        let myVar1, myVar2;
 
        beforeEach(function(done) {
-     		setTimeout(function() {
-           myVar1 = loadFeed(0, done());
-           myVar2 = loadFeed(1, done());
-     		}, 100);
+           loadFeed(0, done());
+           myVar1 = document.querySelector('.feed').innerText;
+           console.log(myVar1);
 
      	});
 
      	it('is added', function(done) {
-        console.log(myVar1.length);
-        console.log(myVar2.length);
-     		expect('myVar1').not.toEqual('myVar2');
+        loadFeed(1, done());
+
      		done();
      	});
+
+      afterEach(function() {
+        myVar2 = document.querySelector('.entry');
+        console.log(myVar2);
+        expect(myVar1).not.toEqual(myVar2);
+      });
 
     });
 
