@@ -91,17 +91,18 @@ $(function() {
          */
     	beforeEach(function(done) {
     		setTimeout(function() {
+          loadFeed(item.data('id'));
     			done();
     		}, 100);
-    		
+
     	});
-    	
+
     	it('exist after page load', function(done) {
-			fail('ooops')});
-/*    		loadFeed(result) {
+/*			fail('ooops')}); */
+
     			expect(result).toBeDefined();
     			done();
-    		}
+
     	});
 
 /*    	beforeEach(async function() {
@@ -124,5 +125,5 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
 
-    
+
 }());
