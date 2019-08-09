@@ -91,26 +91,45 @@ $(function() {
          */
     	beforeEach(function(done) {
     		setTimeout(function() {
-          loadFeed(1, done());
+          loadFeed(0, done());
     		}, 100);
 
     	});
 
     	it('exist after page load', function(done) {
-    			expect($('.entry, .feed').length).not.toBe(0);
+        console.log($('.feed'));
+    			expect($('.feed').length).not.toBe(0);
+          expect($('.entry')).toBeDefined();
     			done();
-
     	});
 
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+      /* TODO: Write a test that ensures when a new feed is loaded
+       * by the loadFeed function that the content actually changes.
+       * Remember, loadFeed() is asynchronous.
+       */
+       let myVar1, myVar2;
 
+       beforeEach(function(done) {
+     		setTimeout(function() {
+           myVar1 = loadFeed(0, done());
+           myVar2 = loadFeed(1, done());
+     		}, 100);
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+     	});
+
+     	it('is added', function(done) {
+        console.log(myVar1.length);
+        console.log(myVar2.length);
+     		expect('myVar1').not.toEqual('myVar2');
+     		done();
+     	});
+
+    });
+
 
 
 }());
