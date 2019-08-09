@@ -91,34 +91,21 @@ $(function() {
          */
     	beforeEach(function(done) {
     		setTimeout(function() {
-          loadFeed(item.data('id'));
-    			done();
+          loadFeed(1, done());
     		}, 100);
 
     	});
 
     	it('exist after page load', function(done) {
-/*			fail('ooops')}); */
-
-    			expect(result).toBeDefined();
+    			expect($('.entry, .feed').length).not.toBe(0);
     			done();
 
     	});
 
-/*    	beforeEach(async function() {
-    		await loadFeed(0);
-    	});
-         it('exist after page load', async function() {
-         	const result = await loadFeed(0);
-         	let parent = document.getElementsByClassName('feed');
-         	let children = parent.childNodes;
-         	console.log(parent);
-         	console.log('hello');
-         	fail('testing only');
-         }); */
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
