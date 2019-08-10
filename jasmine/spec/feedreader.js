@@ -129,19 +129,17 @@ $(function() {
 
        beforeEach(function(done) {
            loadFeed(0, done());
-           myVar1 = document.querySelector('.feed').innerText;
+           myVar1 = document.querySelector('.feed').innerHTML;
            console.log(myVar1);
 
      	});
 
      	it('is added', function(done) {
         loadFeed(1, done());
-
-     		done();
      	});
 
       afterEach(function() {
-        myVar2 = document.querySelector('.entry');
+        myVar2 = document.querySelector('.feed').innerHTML;
         console.log(myVar2);
         expect(myVar1).not.toEqual(myVar2);
       });
