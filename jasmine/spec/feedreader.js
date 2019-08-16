@@ -128,21 +128,23 @@ $(function() {
        let myVar1, myVar2;
 
        beforeEach(function(done) {
-           loadFeed(0, done());
-           myVar1 = document.querySelector('.feed').innerText;
-           console.log(myVar1);
+        loadFeed(0, function() {done();});
+        myVar1 = document.querySelector('.feed').innerText;
+        // console.log('printing myVar1');
+        // console.log(myVar1);
 
      	});
 
      	it('is added', function(done) {
-        loadFeed(1, done());
+        loadFeed(1, function() {done();});
 
      		done();
      	});
 
       afterEach(function() {
-        myVar2 = document.querySelector('.entry');
-        console.log(myVar2);
+        myVar2 = document.querySelector('.feed').innerText;
+        // console.log('printing myVar2');
+        // console.log(myVar2);
         expect(myVar1).not.toEqual(myVar2);
       });
 
